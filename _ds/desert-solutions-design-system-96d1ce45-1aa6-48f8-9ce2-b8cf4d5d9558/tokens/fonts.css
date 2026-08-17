@@ -1,0 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap");
+/* Substitution note: no client font files were provided. Anton (display) is the closest
+   Google Fonts match to the flyer's heavy condensed all-caps typesetting; DM Sans covers body.
+   The logo's brush-script wordmark and the "Clean Yards. Better Views." script tagline are
+   artwork only — never reproduce them in HTML text. */
+:root{--font-display:"Anton",'Arial Narrow',Impact,sans-serif;--font-body:"DM Sans",system-ui,-apple-system,sans-serif}

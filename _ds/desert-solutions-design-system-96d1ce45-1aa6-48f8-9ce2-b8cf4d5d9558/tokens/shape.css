@@ -1,0 +1,5 @@
+:root{
+--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-pill:999px;--radius-badge:14px;
+--border-width:1px;--border-width-strong:2px;
+/* Depth comes from surface layering, not shadows. These two are the only allowed lifts. */
+--shadow-none:none;--shadow-hero-glow:0 0 80px rgba(123,185,46,.12);--shadow-cta:0 10px 30px rgba(232,100,28,.22)}

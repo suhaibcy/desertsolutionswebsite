@@ -1,0 +1,24 @@
+:root{
+/* --- Brand greens (sampled from the logo outline + flyer service icons) --- */
+--ds-green-900:#1d2a0d;--ds-green-700:#3d6a0e;--ds-green-600:#4c7f0b;--ds-green-500:#5c9612;--ds-green-400:#7bb92e;--ds-green-300:#9bd456;
+/* --- Sunset sky (sampled from the logo's sky + sun) --- */
+--ds-sunset-red:#c4381a;--ds-sunset-orange:#e8641c;--ds-sun-amber:#f89818;--ds-sunset-gold:#f7c24a;
+/* --- Desert neutrals --- */
+--ds-canvas:#0b0c0a;--ds-ink-900:#101109;--ds-surface-card:#171812;--ds-surface-elevated:#222318;--ds-hairline:#33352a;--ds-hairline-strong:#4a4d3c;
+--ds-muted:#a8a296;--ds-silver:#d8d6d0;--ds-on-dark:#f5f3ee;--ds-rock:#8a6a4a;
+/* --- Semantic surfaces --- */
+--surface-page:var(--ds-canvas);--surface-card:var(--ds-surface-card);--surface-elevated:var(--ds-surface-elevated);--surface-field:var(--ds-surface-card);--surface-footer:var(--ds-surface-card);
+--surface-accent-tint:color-mix(in srgb,var(--ds-green-400) 14%,transparent);
+/* --- Semantic text --- */
+--text-body:var(--ds-on-dark);--text-heading:var(--ds-on-dark);--text-muted:var(--ds-muted);--text-accent:var(--ds-green-400);--text-on-accent:#0b0c0a;--text-chrome:var(--ds-silver);
+/* --- Semantic lines --- */
+--border-hairline:var(--ds-hairline);--border-strong:var(--ds-hairline-strong);--border-accent:var(--ds-green-400);--focus-ring:var(--ds-green-300);
+/* --- Interactive --- */
+--accent:var(--ds-green-400);--accent-hover:var(--ds-green-300);--accent-press:var(--ds-green-500);--accent-deep:var(--ds-green-600);
+/* --- Gradients & glows (sparing use only: hero backdrop + one CTA band) --- */
+--grad-sunset:linear-gradient(180deg,var(--ds-sunset-red) 0%,var(--ds-sunset-orange) 48%,var(--ds-sunset-gold) 100%);/* @kind color */
+--grad-sunset-h:linear-gradient(90deg,var(--ds-sunset-red) 0%,var(--ds-sunset-orange) 55%,var(--ds-sunset-gold) 100%);/* @kind color */
+--grad-dark-overlay:linear-gradient(180deg,rgba(11,12,10,.46) 0%,rgba(11,12,10,.20) 100%);/* @kind color */
+--glow-green:radial-gradient(60% 70% at 50% 45%,rgba(123,185,46,.20) 0%,rgba(123,185,46,0) 70%);/* @kind color */
+--glow-sunset:radial-gradient(55% 80% at 50% 90%,rgba(232,100,28,.38) 0%,rgba(232,100,28,0) 72%);/* @kind color */
+--scrim-image:linear-gradient(180deg,rgba(11,12,10,0) 0%,rgba(11,12,10,.55) 60%,var(--ds-canvas) 100%);/* @kind color */}
