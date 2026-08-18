@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /thanks.html
 
-Sitemap: https://desertsolutionswebsite.netlify.app/sitemap.xml
+Sitemap: https://desertsolutions.online/sitemap.xml

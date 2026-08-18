@@ -13,27 +13,24 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <meta name="theme-color" content="#0b0c0a">
 
-<!-- TODO (Suhaib): confirm the live site URL (Netlify default *.netlify.app, or a
-     custom domain if one gets connected) and swap it into the og:*/twitter:*/schema
-     "url" fields below and in robots.txt / sitemap.xml. Using the Netlify default as
-     a placeholder for now. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
 <meta property="og:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates — call or text today.">
-<meta property="og:image" content="https://desertsolutionswebsite.netlify.app/assets/brand-card.png">
-<meta property="og:url" content="https://desertsolutionswebsite.netlify.app/">
+<meta property="og:image" content="https://desertsolutions.online/assets/brand-card.png">
+<meta property="og:url" content="https://desertsolutions.online/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
 <meta name="twitter:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates — call or text today.">
-<meta name="twitter:image" content="https://desertsolutionswebsite.netlify.app/assets/brand-card.png">
+<meta name="twitter:image" content="https://desertsolutions.online/assets/brand-card.png">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Desert Solutions Landscaping & Yard Services",
-  "image": "https://desertsolutionswebsite.netlify.app/assets/brand-card.png",
+  "image": "https://desertsolutions.online/assets/brand-card.png",
   "telephone": "+15054037780",
+  "email": "robert@tollardo.com",
   "areaServed": ["Albuquerque, NM", "Rio Rancho, NM", "Corrales, NM", "Bernalillo, NM", "Placitas, NM", "Tijeras, NM", "Los Lunas, NM"],
   "address": {
     "@type": "PostalAddress",
@@ -42,7 +39,7 @@
     "addressCountry": "US"
   },
   "priceRange": "$$",
-  "url": "https://desertsolutionswebsite.netlify.app/",
+  "url": "https://desertsolutions.online/",
   "makesOffer": [
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yard cleanup" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mowing" } },
@@ -264,17 +261,17 @@
     <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:24px">
       <h3 class="ds-display-md" style="margin:0">Get a free estimate</h3>
       <!--
-        TODO (Suhaib): once you have Robert's email, replace ROBERT_EMAIL_PLACEHOLDER
-        below with it, e.g. action="https://formsubmit.co/robert@example.com".
-        FormSubmit needs zero backend/account signup — Robert just gets a one-time
-        confirmation email on the very first real submission to activate it, then
-        every request after that lands straight in his inbox.
+        Points at Robert's real email (robert@tollardo.com) — the same address
+        already used for the footer's mailto link. FormSubmit needs zero
+        backend/account signup: Robert gets a one-time confirmation email on
+        the first real submission to activate it, then every request after
+        that lands straight in his inbox.
       -->
-      <form action="https://formsubmit.co/ROBERT_EMAIL_PLACEHOLDER" method="POST" style="display:flex;flex-direction:column;gap:24px">
+      <form action="https://formsubmit.co/robert@tollardo.com" method="POST" style="display:flex;flex-direction:column;gap:24px">
         <input type="hidden" name="_subject" value="New quote request — Desert Solutions website">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://desertsolutionswebsite.netlify.app/thanks.html">
+        <input type="hidden" name="_next" value="https://desertsolutions.online/thanks.html">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" name="name" placeholder="Your name" required="{{ true }}" hint-size="100%,80px"></x-import>
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
@@ -313,22 +310,29 @@ class Component extends DCLogic {
       true: true
     };
   }
+  componentDidMount() {
+    // Scroll-entrance motion for [data-reveal] sections. Runs from this
+    // supported DC lifecycle hook rather than a plain trailing <script> —
+    // the runtime replaces the static markup with its own rendered tree, so
+    // a bare <script> tag sitting after </x-dc> never actually executes.
+    if (window.__dsRevealInit) return;
+    window.__dsRevealInit = true;
+    const els = document.querySelectorAll('[data-reveal]');
+    if (!els.length || !('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach((el) => io.observe(el));
+  }
 }
-</script>
-<script>
-(function(){
-  var els = document.querySelectorAll('[data-reveal]');
-  if (!els.length || !('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  els.forEach(function(el){ io.observe(el); });
-})();
 </script>
 </body>
 </html>
