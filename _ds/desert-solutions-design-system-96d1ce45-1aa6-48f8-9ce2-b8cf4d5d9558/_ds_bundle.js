@@ -299,8 +299,27 @@ Object.assign(__ds_scope, { SectionHeading });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 const ICON_NAMES = ['mower', 'grass-tuft', 'grass-blades', 'mulch-rock', 'bush', 'leaf', 'house', 'sparkles', 'trash', 'truck', 'haul-truck', 'branch', 'pin', 'person', 'phone', 'mail'];
-/** Override with window.DS_ASSET_BASE when the page is not served from the project root. */
-const base = () => typeof window !== 'undefined' && window.DS_ASSET_BASE || '/assets/';
+/** Lucide-style inline SVG paths (viewBox 0 0 24 24, stroke currentColor) — matches the
+ *  agency's own site convention. mower/grass-blades/grass-tuft/mulch-rock/branch are
+ *  hand-drawn in the same stroke style since Lucide has no landscaping-specific glyphs. */
+const ICON_PATHS = {
+  mower: '<path d="M13 9V5l6-2"/><path d="M7 17h10a2 2 0 0 0 2-2 5 5 0 0 0-5-5h-4a5 5 0 0 0-5 5 2 2 0 0 0 2 2Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>',
+  'grass-tuft': '<path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/>',
+  'grass-blades': '<path d="M12 21V9"/><path d="M12 12c0-4.5 3.5-7 3.5-7s.5 4.5-3.5 7"/><path d="M12 15c0-3.5-3.5-6-3.5-6s-.5 3.5 3.5 6"/><path d="M4 21h16"/>',
+  'mulch-rock': '<circle cx="7" cy="16" r="4"/><circle cx="17" cy="16" r="4"/><circle cx="12" cy="10" r="4"/>',
+  bush: '<path d="M12 22v-5.172a2 2 0 0 0-.586-1.414L9.5 13.5"/><path d="M14.5 14.5 12 17"/><path d="M17 8.8A6 6 0 0 1 13.8 20H10A6.5 6.5 0 0 1 7 8a5 5 0 0 1 10 0z"/>',
+  leaf: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>',
+  house: '<path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  sparkles: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/>',
+  trash: '<path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+  truck: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+  'haul-truck': '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+  branch: '<path d="M4 20 20 4"/><path d="M9 15l-2 2"/><path d="M15 9l-2 2"/>',
+  pin: '<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  person: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  phone: '<path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/>',
+  mail: '<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/>'
+};
 function ServiceIcon({
   name,
   size = 28,
@@ -309,23 +328,29 @@ function ServiceIcon({
   style,
   ...rest
 }) {
-  const filters = {
-    accent: 'none',
-    dark: 'brightness(0.25) saturate(0)',
-    chrome: 'grayscale(1) brightness(2.2)',
-    muted: 'grayscale(1) brightness(1.35) opacity(.75)'
+  const colors = {
+    accent: 'var(--accent)',
+    dark: 'var(--text-on-accent)',
+    chrome: 'var(--text-chrome)',
+    muted: 'var(--text-muted)'
   };
-  return /*#__PURE__*/React.createElement("img", _extends({
-    src: base() + 'icons/' + name + '.png',
-    alt: alt,
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    viewBox: "0 0 24 24",
+    width: size,
+    height: size,
+    fill: "none",
+    stroke: colors[tone] || colors.accent,
+    strokeWidth: 1.8,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
     "aria-hidden": alt ? undefined : true,
+    role: alt ? "img" : undefined,
     style: {
-      width: size,
-      height: 'auto',
       display: 'block',
-      filter: filters[tone],
+      flexShrink: 0,
       ...style
-    }
+    },
+    dangerouslySetInnerHTML: { __html: ICON_PATHS[name] || '' }
   }, rest));
 }
 Object.assign(__ds_scope, { ICON_NAMES, ServiceIcon });
@@ -999,6 +1024,60 @@ Object.assign(__ds_scope, { ServiceCard });
 
 // components/marketing/StatBand.jsx
 try { (() => {
+function StatCountUp({ item, index }) {
+  const ref = React.useRef(null);
+  const [display, setDisplay] = React.useState(item.value);
+  React.useEffect(() => {
+    const m = /^(\$?)(\d+)$/.exec(item.value);
+    const el = ref.current;
+    if (!m || !el || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const prefix = m[1];
+    const target = parseInt(m[2], 10);
+    if (!target) return;
+    let started = false;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+          const start = performance.now();
+          const dur = 900;
+          const tick = (now) => {
+            const p = Math.min(1, (now - start) / dur);
+            const eased = 1 - Math.pow(1 - p, 3);
+            setDisplay(prefix + Math.max(0, Math.round(eased * target)));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return /*#__PURE__*/React.createElement("div", {
+    ref,
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 'var(--space-sm)',
+      padding: '0 var(--space-xl)',
+      borderLeft: index ? 'var(--border-width) solid var(--border-hairline)' : 'none'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "ds-display-lg",
+    style: {
+      fontSize: 52,
+      color: 'var(--text-heading)'
+    }
+  }, display, /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: 'var(--accent)'
+    }
+  }, item.suffix || '')), /*#__PURE__*/React.createElement("span", {
+    className: "ds-body-sm"
+  }, item.label));
+}
 function StatBand({
   items = [{
     value: '1',
@@ -1023,28 +1102,7 @@ function StatBand({
       gap: 'var(--space-xl)',
       ...style
     }
-  }, items.map((it, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 'var(--space-sm)',
-      padding: '0 var(--space-xl)',
-      borderLeft: i ? 'var(--border-width) solid var(--border-hairline)' : 'none'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "ds-display-lg",
-    style: {
-      fontSize: 52,
-      color: 'var(--text-heading)'
-    }
-  }, it.value, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--accent)'
-    }
-  }, it.suffix || '')), /*#__PURE__*/React.createElement("span", {
-    className: "ds-body-sm"
-  }, it.label))));
+  }, items.map((it, i) => /*#__PURE__*/React.createElement(StatCountUp, { key: i, item: it, index: i })));
 }
 Object.assign(__ds_scope, { StatBand });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/marketing/StatBand.jsx", error: String((e && e.message) || e) }); }
@@ -1143,13 +1201,17 @@ function TickerBand({
       color: 'var(--ds-on-dark)',
       whiteSpace: 'nowrap'
     }
-  }, t), /*#__PURE__*/React.createElement("img", {
-    src: base() + 'icons/leaf.png',
-    alt: "",
-    style: {
-      width: 18,
-      filter: 'brightness(0.2) saturate(0)'
-    }
+  }, t), /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 24 24",
+    width: 18,
+    height: 18,
+    fill: "none",
+    stroke: "var(--text-on-accent)",
+    strokeWidth: 1.8,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": true,
+    dangerouslySetInnerHTML: { __html: '<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>' }
   })))));
 }
 Object.assign(__ds_scope, { TickerBand });
