@@ -5,6 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup</title>
 <meta name="description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates — call or text today.">
+
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0c0a">
+
+<!-- TODO (Suhaib): confirm the live site URL (Netlify default *.netlify.app, or a
+     custom domain if one gets connected) and swap it into the og:*/twitter:*/schema
+     "url" fields below and in robots.txt / sitemap.xml. Using the Netlify default as
+     a placeholder for now. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
+<meta property="og:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates — call or text today.">
+<meta property="og:image" content="https://desertsolutionswebsite.netlify.app/assets/brand-card.png">
+<meta property="og:url" content="https://desertsolutionswebsite.netlify.app/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
+<meta name="twitter:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates — call or text today.">
+<meta name="twitter:image" content="https://desertsolutionswebsite.netlify.app/assets/brand-card.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Desert Solutions Landscaping & Yard Services",
+  "image": "https://desertsolutionswebsite.netlify.app/assets/brand-card.png",
+  "telephone": "+15054037780",
+  "areaServed": ["Albuquerque, NM", "Rio Rancho, NM", "Corrales, NM", "Bernalillo, NM", "Placitas, NM", "Tijeras, NM", "Los Lunas, NM"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Albuquerque",
+    "addressRegion": "NM",
+    "addressCountry": "US"
+  },
+  "priceRange": "$$",
+  "url": "https://desertsolutionswebsite.netlify.app/",
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yard cleanup" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mowing" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weed removal" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mulch & rock" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bush trimming" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Leaf & debris cleanup" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Property maintenance" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Light pressure washing" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Haul-away & branch removal" } }
+  ]
+}
+</script>
+
+<!-- Google Ads conversion tracking: paste the gtag.js snippet from the Google Ads account
+     here once it exists. Until then this is intentionally left blank / inert. -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-XXXXXXXXX');
+  window.dsFireAdsConversion = function(label){
+    gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX/' + label });
+  };
+</script>
+-->
+<script>
+  // No-op until the snippet above is uncommented and a real conversion ID is added.
+  window.dsFireAdsConversion = window.dsFireAdsConversion || function(){};
+</script>
+
 <script src="./support.js"></script>
 </head>
 <body>
@@ -26,6 +97,17 @@
   .ds-header-cta{display:none}
   .ds-header-nav a{padding:12px 16px}
   .ds-header-nav .ds-header-cta-mobile{display:block;margin-top:6px}
+}
+.ds-trust-item{border-right:1px solid var(--border-hairline)}
+.ds-trust-item:last-child{border-right:none}
+@media (max-width:860px){
+  .ds-trust-item{border-right:none !important;border-bottom:1px solid var(--border-hairline)}
+  .ds-trust-item:last-child{border-bottom:none}
+}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .36s cubic-bezier(.2,.7,.3,1),transform .36s cubic-bezier(.2,.7,.3,1)}
+[data-reveal].is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1;transform:none;transition:none}
 }
 </style></helmet>
 <div style="background:var(--surface-page);color:var(--text-body);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden">
@@ -63,33 +145,39 @@
       </div>
     </div>
     <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:end">
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="arch" height="{{ h400 }}" src="assets/photos/yard-wide-evening.jpg" alt="Freshly mowed and edged desert yard in Albuquerque at dusk" caption="Mowed, edged and blown — late light." hint-size="100%,400px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="oval" height="{{ h280 }}" src="assets/photos/mowing.jpg" alt="Robert mowing a desert lawn in Albuquerque" hint-size="100%,280px"></x-import>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="arch" height="{{ h400 }}" src="assets/photos/yard-wide-evening.jpg" alt="Freshly mowed and edged desert yard in Albuquerque at dusk" caption="Mowed, edged and blown — late light." loading="eager" hint-size="100%,400px"></x-import>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="oval" height="{{ h420 }}" src="assets/photos/mowing.jpg" alt="Robert mowing a desert lawn in Albuquerque" loading="eager" hint-size="100%,420px"></x-import>
     </div>
   </div>
 </section>
 
-<section style="position:relative;z-index:2;margin-top:-96px;padding:0 24px 64px">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
-    <div style="background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:12px;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative">
-      <span style="position:absolute;top:-32px;width:64px;height:64px;border-radius:999px;background:var(--surface-elevated);border:1px solid var(--border-hairline);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="mower" size="{{ h32 }}" hint-size="32px,32px"></x-import></span>
-      <h3 class="ds-title-md" style="margin:0">Regular yard care</h3>
-      <p class="ds-body-sm" style="margin:0;max-width:32ch">Mow, trim and blow on a set schedule so it never gets away from you.</p>
+<section data-reveal style="position:relative;z-index:2;margin-top:-96px;padding:0 24px 64px">
+  <div style="max-width:1200px;margin:0 auto;background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="ds-trust-item" style="display:flex;align-items:flex-start;gap:16px;padding:32px 28px">
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="mower" size="{{ h32 }}" hint-size="32px,32px" style="flex-shrink:0;margin-top:2px"></x-import>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="ds-title-md" style="margin:0">Regular yard care</h3>
+        <p class="ds-body-sm" style="margin:0;max-width:32ch">Mow, trim and blow on a set schedule so it never gets away from you.</p>
+      </div>
     </div>
-    <div style="background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:12px;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative">
-      <span style="position:absolute;top:-32px;width:64px;height:64px;border-radius:999px;background:var(--surface-elevated);border:1px solid var(--border-hairline);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="mulch-rock" size="{{ h32 }}" hint-size="32px,32px"></x-import></span>
-      <h3 class="ds-title-md" style="margin:0">Rock, mulch and gravel</h3>
-      <p class="ds-body-sm" style="margin:0;max-width:32ch">Spread and levelled, weeds pulled out of the rock before I start.</p>
+    <div class="ds-trust-item" style="display:flex;align-items:flex-start;gap:16px;padding:32px 28px">
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="mulch-rock" size="{{ h32 }}" hint-size="32px,32px" style="flex-shrink:0;margin-top:2px"></x-import>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="ds-title-md" style="margin:0">Rock, mulch and gravel</h3>
+        <p class="ds-body-sm" style="margin:0;max-width:32ch">Spread and levelled, weeds pulled out of the rock before I start.</p>
+      </div>
     </div>
-    <div style="background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:12px;padding:48px 24px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;position:relative">
-      <span style="position:absolute;top:-32px;width:64px;height:64px;border-radius:999px;background:var(--surface-elevated);border:1px solid var(--border-hairline);display:flex;align-items:center;justify-content:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="haul-truck" size="{{ h32 }}" hint-size="32px,32px"></x-import></span>
-      <h3 class="ds-title-md" style="margin:0">Cleanup and haul-away</h3>
-      <p class="ds-body-sm" style="margin:0;max-width:32ch">Branches, weeds and debris loaded up and gone the same day.</p>
+    <div class="ds-trust-item" style="display:flex;align-items:flex-start;gap:16px;padding:32px 28px">
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="haul-truck" size="{{ h32 }}" hint-size="32px,32px" style="flex-shrink:0;margin-top:2px"></x-import>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <h3 class="ds-title-md" style="margin:0">Cleanup and haul-away</h3>
+        <p class="ds-body-sm" style="margin:0;max-width:32ch">Branches, weeds and debris loaded up and gone the same day.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="padding:0 24px 64px;background:var(--surface-page)">
+<section data-reveal style="padding:0 24px 64px;background:var(--surface-page)">
   <div style="max-width:1200px;margin:0 auto">
     <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.StatBand" hint-size="100%,150px"></x-import>
   </div>
@@ -97,7 +185,7 @@
 
 <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.TickerBand" speed="{{ tickerSpeed }}" hint-size="100%,72px"></x-import>
 
-<section id="about" style="padding:96px 24px;background:var(--surface-card);border-bottom:1px solid var(--border-hairline)">
+<section id="about" data-reveal style="padding:96px 24px;background:var(--surface-card);border-bottom:1px solid var(--border-hairline)">
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:center">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" tilt="{{ tiltA }}" height="{{ h260 }}" src="assets/photos/path-kiddie-pool.jpg" alt="Edged gravel path beside a backyard pool" hint-size="100%,260px"></x-import>
@@ -119,14 +207,14 @@
   </div>
 </section>
 
-<section id="how-it-works" style="padding:96px 24px">
+<section id="how-it-works" data-reveal style="padding:96px 24px">
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
     <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Three steps, no paperwork" intro="Nothing is booked online and nothing is prepaid. You call, I look, we agree on a price." hint-size="100%,180px"></x-import>
     <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ProcessSteps" hint-size="100%,240px"></x-import>
   </div>
 </section>
 
-<section id="services" style="padding:96px 24px;background:var(--surface-card);border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline)">
+<section id="services" data-reveal style="padding:96px 24px;background:var(--surface-card);border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline)">
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
     <div style="display:flex;gap:40px;align-items:flex-end;flex-wrap:wrap;justify-content:space-between">
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Services" intro="Pick what the yard needs, or tell me and I'll sort it out on the walk-through. Every job is quoted per yard." hint-size="100%,180px"></x-import>
@@ -146,13 +234,13 @@
   </div>
 </section>
 
-<section style="padding:96px 24px">
+<section data-reveal style="padding:96px 24px">
   <div style="max-width:1200px;margin:0 auto">
     <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.StatRow" hint-size="100%,180px"></x-import>
   </div>
 </section>
 
-<section id="service-area" style="padding:0 24px 96px">
+<section id="service-area" data-reveal style="padding:0 24px 96px">
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
       <h2 class="ds-display-lg" style="margin:0;max-width:18ch">Albuquerque and about thirty miles out</h2>
@@ -164,8 +252,8 @@
   </div>
 </section>
 
-<section id="get-a-quote" style="position:relative;overflow:hidden;background:var(--surface-page);padding:96px 24px;border-top:1px solid var(--border-hairline)">
-  <img src="assets/brand-card.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18">
+<section id="get-a-quote" data-reveal style="position:relative;overflow:hidden;background:var(--surface-page);padding:96px 24px;border-top:1px solid var(--border-hairline)">
+  <img src="assets/brand-card.png" alt="" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18">
   <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,10,.95) 0%,rgba(11,12,10,.72) 60%,rgba(11,12,10,.92) 100%)"></div>
   <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
@@ -175,17 +263,30 @@
     </div>
     <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:24px">
       <h3 class="ds-display-md" style="margin:0">Get a free estimate</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" placeholder="Your name" required="{{ true }}" hint-size="100%,80px"></x-import>
-        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" type="tel" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
-        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service needed" as="select" options="{{ serviceOptions }}" hint-size="100%,80px"></x-import>
-        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service address" placeholder="Street, Albuquerque" required="{{ true }}" hint-size="100%,80px"></x-import>
-      </div>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Anything I should know?" as="textarea" rows="{{ three }}" placeholder="Gate code, dog in the yard, how tall the weeds are." hint-size="100%,120px"></x-import>
-      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
-        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" hint-size="auto,56px">Send request</x-import>
-        <span class="ds-body-sm">Or call or text <a href="{{ telHref }}">{{ phone }}</a>.</span>
-      </div>
+      <!--
+        TODO (Suhaib): once you have Robert's email, replace ROBERT_EMAIL_PLACEHOLDER
+        below with it, e.g. action="https://formsubmit.co/robert@example.com".
+        FormSubmit needs zero backend/account signup — Robert just gets a one-time
+        confirmation email on the very first real submission to activate it, then
+        every request after that lands straight in his inbox.
+      -->
+      <form action="https://formsubmit.co/ROBERT_EMAIL_PLACEHOLDER" method="POST" style="display:flex;flex-direction:column;gap:24px">
+        <input type="hidden" name="_subject" value="New quote request — Desert Solutions website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://desertsolutionswebsite.netlify.app/thanks.html">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" name="name" placeholder="Your name" required="{{ true }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service needed" name="service_needed" as="select" options="{{ serviceOptions }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service address" name="service_address" placeholder="Street, Albuquerque" required="{{ true }}" hint-size="100%,80px"></x-import>
+        </div>
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Anything I should know?" name="notes" as="textarea" rows="{{ three }}" placeholder="Gate code, dog in the yard, how tall the weeds are." hint-size="100%,120px"></x-import>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" type="submit" hint-size="auto,56px">Send request</x-import>
+          <span class="ds-body-sm">Or call or text <a href="{{ telHref }}">{{ phone }}</a>.</span>
+        </div>
+      </form>
     </div>
   </div>
 </section>
@@ -213,6 +314,21 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+(function(){
+  var els = document.querySelectorAll('[data-reveal]');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>

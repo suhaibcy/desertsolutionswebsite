@@ -684,6 +684,7 @@ function ImageFrame({
   alt = '',
   tilt = 0,
   height = 320,
+  loading = 'lazy',
   style
 }) {
   const radii = {
@@ -706,6 +707,8 @@ function ImageFrame({
   }, src ? /*#__PURE__*/React.createElement("img", {
     src: src,
     alt: alt,
+    loading: loading,
+    decoding: "async",
     style: {
       width: '100%',
       height: '100%',
