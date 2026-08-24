@@ -312,10 +312,10 @@
         <input type="hidden" name="_next" value="https://desertsolutions.online/thanks.html">
         <input type="hidden" name="_cc" value="highrisegrowthco@gmail.com">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" name="name" placeholder="Your name" required="{{ true }}" hint-size="100%,80px"></x-import>
-          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" name="name" placeholder="Your name" required="{{ true }}" autocomplete="name" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9\s\-\(\)\+]{7,20}" title="Enter a valid phone number, like 505 123 4567" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service needed" name="service_needed" as="select" options="{{ serviceOptions }}" hint-size="100%,80px"></x-import>
-          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service address" name="service_address" placeholder="Street, Albuquerque" required="{{ true }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service address" id="service_address" name="service_address" placeholder="Street, Albuquerque" required="{{ true }}" autocomplete="off" hint-size="100%,80px"></x-import>
         </div>
         <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Anything I should know?" name="notes" as="textarea" rows="{{ three }}" placeholder="Gate code, dog in the yard, how tall the weeds are." hint-size="100%,120px"></x-import>
         <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
