@@ -111,6 +111,13 @@
   .ds-collage-grid > *{margin-top:0 !important}
   .ds-collage-grid > *:nth-child(2){margin-top:20px !important}
 }
+.ds-field-error{display:none;margin-top:-2px;color:var(--ds-sunset-red);font-size:13px;line-height:1.3}
+label.ds-field-invalid input,label.ds-field-invalid textarea{border-color:var(--ds-sunset-red) !important;box-shadow:0 0 0 2px rgba(196,56,26,.16) !important}
+label.ds-field-invalid .ds-field-error{display:block}
+label.ds-field-valid input,label.ds-field-valid textarea{border-color:var(--ds-green-400) !important}
+@keyframes ds-shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
+label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
+#get-a-quote button[type="submit"]{transition:opacity .2s ease,transform .2s ease}
 </style></helmet>
 <div style="background:var(--surface-page);color:var(--text-body);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden">
 
@@ -305,7 +312,7 @@
         the first real submission to activate it, then every request after
         that lands straight in his inbox.
       -->
-      <form action="https://formsubmit.co/robert@tollardo.com" method="POST" style="display:flex;flex-direction:column;gap:24px">
+      <form action="https://formsubmit.co/robert@tollardo.com" method="POST" novalidate style="display:flex;flex-direction:column;gap:24px">
         <input type="hidden" name="_subject" value="New quote request from the Desert Solutions website">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
@@ -381,6 +388,69 @@ class Component extends DCLogic {
         target.classList.add('is-visible');
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    }
+
+    // Quote form: live validation feedback per field, plus a "sending"
+    // state on submit. Runs on real DOM nodes after the DC runtime has
+    // rendered them — the Field/Button components don't expose an
+    // invalid/loading prop, so this drives it directly via classes instead.
+    // Deferred to window 'load' (not run inline here) because this runtime
+    // does one further full DOM rebuild shortly after initial mount — the
+    // same reason the anchor-scroll fix above has to re-run manually —
+    // which would otherwise wipe out the error-message elements below.
+    const initQuoteForm = () => {
+      if (window.__dsQuoteFormInit) return;
+      window.__dsQuoteFormInit = true;
+      const quoteForm = document.querySelector('#get-a-quote form');
+      if (!quoteForm) return;
+      const requiredFields = Array.from(quoteForm.querySelectorAll('input[required]'));
+      const entries = requiredFields.map((field) => {
+        const wrap = field.closest('label');
+        const errorMsg = document.createElement('span');
+        errorMsg.className = 'ds-field-error';
+        if (wrap) wrap.appendChild(errorMsg);
+        const validate = (force) => {
+          if (!wrap) return true;
+          const valid = field.checkValidity();
+          const touched = force || field.value !== '';
+          wrap.classList.toggle('ds-field-invalid', touched && !valid);
+          wrap.classList.toggle('ds-field-valid', touched && valid);
+          errorMsg.textContent = field.validity.patternMismatch
+            ? (field.title || 'Please double-check this field')
+            : 'This field is required';
+          return valid;
+        };
+        field.addEventListener('input', validate);
+        field.addEventListener('blur', validate);
+        return { field, wrap, validate };
+      });
+
+      const submitBtn = quoteForm.querySelector('button[type="submit"]');
+      quoteForm.addEventListener('submit', (e) => {
+        let firstInvalid = null;
+        entries.forEach(({ field, validate }) => {
+          const valid = validate(true);
+          if (!valid && !firstInvalid) firstInvalid = field;
+        });
+        if (firstInvalid) {
+          e.preventDefault();
+          const wrap = firstInvalid.closest('label');
+          wrap.classList.add('ds-shake');
+          setTimeout(() => wrap.classList.remove('ds-shake'), 400);
+          firstInvalid.focus();
+          return;
+        }
+        if (submitBtn) {
+          submitBtn.style.opacity = '.65';
+          submitBtn.style.transform = 'scale(.98)';
+          submitBtn.setAttribute('aria-busy', 'true');
+        }
+      });
+    };
+    if (document.readyState === 'complete') {
+      initQuoteForm();
+    } else {
+      window.addEventListener('load', initQuoteForm, { once: true });
     }
   }
 }

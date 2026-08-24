@@ -448,6 +448,7 @@ function Field({
     onFocus: () => setFocus(true),
     onBlur: () => setFocus(false),
     style: ctl,
+    required,
     ...rest
   };
   return /*#__PURE__*/React.createElement("label", {
