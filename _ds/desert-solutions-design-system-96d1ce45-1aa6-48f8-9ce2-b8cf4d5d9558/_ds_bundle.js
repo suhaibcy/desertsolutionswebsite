@@ -690,7 +690,7 @@ function CtaBand({
   }, sub), /*#__PURE__*/React.createElement(__ds_scope.Button, {
     size: "lg",
     variant: "onSunset",
-    href: 'tel:' + phone.replace(/\s/g, '')
+    href: 'tel:' + phone.replace(/[^\d+]/g, '')
   }, "Call ", phone)));
 }
 Object.assign(__ds_scope, { CtaBand });
@@ -885,7 +885,7 @@ function HeroBand({
   }, "Get your free estimate"), /*#__PURE__*/React.createElement(__ds_scope.Button, {
     size: "lg",
     variant: "secondary",
-    href: 'tel:' + phone.replace(/\s/g, ''),
+    href: 'tel:' + phone.replace(/[^\d+]/g, ''),
     icon: /*#__PURE__*/React.createElement(__ds_scope.ServiceIcon, {
       name: "phone",
       size: 18
@@ -1301,7 +1301,7 @@ function Footer({
     name: "phone",
     size: 18
   }), /*#__PURE__*/React.createElement("a", {
-    href: 'tel:' + phone.replace(/\s/g, '')
+    href: 'tel:' + phone.replace(/[^\d+]/g, '')
   }, phone)), /*#__PURE__*/React.createElement("span", {
     style: {
       display: 'flex',
@@ -1410,7 +1410,7 @@ function TopNav({
       }
     }, l);
   })), /*#__PURE__*/React.createElement("a", {
-    href: 'tel:' + phone.replace(/\s/g, ''),
+    href: 'tel:' + phone.replace(/[^\d+]/g, ''),
     style: {
       display: 'inline-flex',
       alignItems: 'center',

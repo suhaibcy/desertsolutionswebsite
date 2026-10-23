@@ -399,7 +399,7 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
         <input type="hidden" name="_cc" value="highrisegrowthco@gmail.com">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Name" name="name" placeholder="Your name" required="{{ true }}" autocomplete="name" hint-size="100%,80px"></x-import>
-          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9\s\-\(\)\+]{7,20}" title="Enter a valid phone number, like 505 123 4567" placeholder="505 000 0000" required="{{ true }}" hint-size="100%,80px"></x-import>
+          <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9\s\-\(\)\+]{7,20}" title="Enter a valid phone number, like (505) 123-4567" placeholder="(505) 000-0000" required="{{ true }}" hint-size="100%,80px"></x-import>
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service needed" name="service_needed" as="select" options="{{ serviceOptions }}" hint-size="100%,80px"></x-import>
           <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Field" label="Service address" id="service_address" name="service_address" placeholder="Street, Albuquerque" required="{{ true }}" autocomplete="off" hint-size="100%,80px"></x-import>
         </div>
@@ -419,17 +419,17 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
 </div>
 
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;505 403 7780&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:38,&quot;min&quot;:16,&quot;max&quot;:80,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;(505) 403-7780&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:38,&quot;min&quot;:16,&quot;max&quot;:80,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
 class Component extends DCLogic {
   renderVals() {
-    const phone = this.props.phone ?? '505 403 7780';
+    const phone = this.props.phone ?? '(505) 403-7780';
     return {
       phone,
-      telHref: 'tel:' + phone.replace(/\s/g, ''),
+      telHref: 'tel:' + phone.replace(/[^\d+]/g, ''),
       tickerSpeed: this.props.tickerSpeed ?? 38,
       h48: 48, h32: 32,
       h260: 260, h220: 220, h420: 420, h400: 400, h280: 280, three: 3,
-      serviceOptions: ['Hardscaping', 'Landscaping', 'Construction', 'Yard cleanup', 'Mowing', 'Weed removal', 'Mulch & rock', 'Bush trimming', 'Leaf / debris cleanup', 'Property maintenance', 'Pressure washing (light work)'],
+      serviceOptions: ['Patio installation', 'Concrete pouring', 'Driveways', 'Rock & flagstone walkways', 'Desert landscaping', 'Mulch & rock', 'Mowing', 'Something else'],
       tiltA: -3, tiltB: 2, tiltC: 3, tiltD: -2,
       navLinks: ['Services', 'How it works', 'Service area', 'FAQ', 'Get a quote'],
       true: true
