@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup</title>
-<meta name="description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates. Call or text today.">
+<title>Desert Solutions | Albuquerque Hardscaping, Landscaping & Yard Care</title>
+<meta name="description" content="Concrete patios, driveways, desert landscaping and yard cleanup in Albuquerque, NM. Owner-operated. Free estimates. Call or text today.">
 
 <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
@@ -14,13 +14,13 @@
 <meta name="theme-color" content="#0b0c0a">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
-<meta property="og:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates. Call or text today.">
+<meta property="og:title" content="Desert Solutions | Albuquerque Hardscaping, Landscaping & Yard Care">
+<meta property="og:description" content="Concrete patios, driveways, desert landscaping and yard cleanup in Albuquerque, NM. Owner-operated. Free estimates. Call or text today.">
 <meta property="og:image" content="https://desertsolutions.online/assets/brand-card.png">
 <meta property="og:url" content="https://desertsolutions.online/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Desert Solutions Landscaping | Albuquerque Yard Care & Cleanup">
-<meta name="twitter:description" content="Owner-operated yard cleanup, mowing, mulch and rock in Albuquerque, NM. Free estimates. Call or text today.">
+<meta name="twitter:title" content="Desert Solutions | Albuquerque Hardscaping, Landscaping & Yard Care">
+<meta name="twitter:description" content="Concrete patios, driveways, desert landscaping and yard cleanup in Albuquerque, NM. Owner-operated. Free estimates. Call or text today.">
 <meta name="twitter:image" content="https://desertsolutions.online/assets/brand-card.png">
 
 <script type="application/ld+json">
@@ -41,6 +41,9 @@
   "priceRange": "$$",
   "url": "https://desertsolutions.online/",
   "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hardscaping" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landscaping" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Concrete driveways and walkways" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Yard cleanup" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mowing" } },
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weed removal" } },
@@ -111,6 +114,20 @@ label.ds-field-valid input,label.ds-field-valid textarea{border-color:var(--ds-g
 @keyframes ds-shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
 label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
 #get-a-quote button[type="submit"]{transition:opacity .2s ease,transform .2s ease}
+.ds-feature-row{display:flex;gap:64px;align-items:center}
+.ds-feature-row--flip{flex-direction:row-reverse}
+.ds-feature-media,.ds-feature-copy{flex:1 1 0;min-width:0}
+.ds-feature-media{display:flex;flex-direction:column;gap:12px}
+.ds-feature-copy{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.ds-feature-thumbs{display:grid;gap:12px}
+.ds-feature-thumbs img{display:block;width:100%;height:120px;object-fit:cover;border-radius:12px;border:1px solid var(--border-hairline)}
+.ds-feature-list{margin:0;padding:16px 0 0;list-style:none;display:flex;flex-direction:column;gap:10px;width:100%;max-width:46ch;border-top:1px solid var(--border-hairline)}
+.ds-feature-list li{display:flex;gap:12px;align-items:center}
+.ds-feature-list li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@media (max-width:860px){
+  .ds-feature-row,.ds-feature-row--flip{flex-direction:column;align-items:stretch;gap:32px}
+  .ds-feature-thumbs img{height:90px}
+}
 </style></helmet>
 <div style="background:var(--surface-page);color:var(--text-body);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden">
 
@@ -126,7 +143,7 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
     </label>
     <nav class="ds-header-nav" style="display:flex;gap:4px;align-items:center;margin-left:auto;flex-wrap:wrap">
       <a href="#top" style="font-size:15px;font-weight:700;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Home</a>
-      <a href="#about" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">About</a>
+      <a href="#featured" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Featured</a>
       <a href="#services" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Services</a>
       <a href="#how-it-works" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">How it works</a>
       <a href="#service-area" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Service area</a>
@@ -141,7 +158,7 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
   <div style="position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
       <h1 class="ds-display-xl" style="margin:0;max-width:11ch">Clean yards. Better views.</h1>
-      <p class="ds-body" style="margin:0;font-size:18px;color:var(--text-muted);max-width:42ch">Mowing, cleanup, mulch and rock, bush trimming. One call, one guy, no runaround. Owner-operated in Albuquerque.</p>
+      <p class="ds-body" style="margin:0;font-size:18px;color:var(--text-muted);max-width:42ch">Hardscaping, landscaping and construction, plus mowing, cleanup and trimming. Owner-operated in Albuquerque.</p>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,56px">Get your free estimate</x-import>
         <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" variant="secondary" href="{{ telHref }}" hint-size="auto,56px">Call {{ phone }}</x-import>
@@ -188,24 +205,79 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
 
 <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.TickerBand" speed="{{ tickerSpeed }}" hint-size="100%,72px"></x-import>
 
-<section id="about" data-reveal style="padding:96px 24px;background:var(--surface-card);border-bottom:1px solid var(--border-hairline)">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px;align-items:center">
-    <div class="ds-collage-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" tilt="{{ tiltA }}" height="{{ h260 }}" src="assets/photos/path-kiddie-pool.jpg" alt="Edged gravel path beside a backyard pool" hint-size="100%,260px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" tilt="{{ tiltB }}" height="{{ h260 }}" src="assets/photos/lawn-edge-evening.jpg" alt="Clean lawn edge in evening light" hint-size="100%,260px" style="margin-top:40px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" tilt="{{ tiltC }}" height="{{ h220 }}" src="assets/photos/path-edged.jpg" alt="Freshly edged desert landscaping path" hint-size="100%,220px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" tilt="{{ tiltD }}" height="{{ h220 }}" src="assets/photos/trimming.jpg" alt="Bush trimmed back along a walkway" hint-size="100%,220px" style="margin-top:24px"></x-import>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
-      <h2 class="ds-display-lg" style="margin:0;max-width:20ch">One truck, one guy, the whole yard</h2>
-      <p class="ds-body" style="margin:0;color:var(--text-muted);max-width:46ch">I'm Robert Tollardo. I run Desert Solutions myself. I answer the phone, I give the estimate, and I do the work. Your gate code doesn't go to some subcontractor.</p>
-      <p class="ds-body" style="margin:0;color:var(--text-muted);max-width:46ch">Desert yards need different care than lawns. Rock gets weeded, gravel gets levelled, bushes get pulled back off the walls, and everything I cut leaves with me.</p>
-      <div style="display:flex;flex-direction:column;gap:12px;padding:16px 0;border-top:1px solid var(--border-hairline);border-bottom:1px solid var(--border-hairline);width:100%;max-width:46ch">
-        <span style="display:flex;gap:12px;align-items:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="truck" size="22" hint-size="22px,22px"></x-import><span class="ds-body-sm">Debris and clippings hauled off the same day.</span></span>
-        <span style="display:flex;gap:12px;align-items:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="pin" size="22" hint-size="22px,22px"></x-import><span class="ds-body-sm">Albuquerque and about 30 miles out.</span></span>
-        <span style="display:flex;gap:12px;align-items:center"><x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceIcon" name="phone" size="22" hint-size="22px,22px"></x-import><span class="ds-body-sm">Free estimate. Call or text. No deposit.</span></span>
+<section id="featured" data-reveal style="padding:96px 24px;background:var(--surface-card);border-bottom:1px solid var(--border-hairline)">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:80px">
+    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Hardscaping. Landscaping. Construction." intro="These are the jobs I want to be your first call for. Every one starts with a free walk-through and a straight price." hint-size="100%,180px"></x-import>
+
+    <div id="hardscaping" class="ds-feature-row">
+      <div class="ds-feature-media">
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="arch" height="{{ h400 }}" src="assets/photos/hardscape-patio-finished.jpg" alt="Finished concrete patio along the back of a house in Albuquerque" hint-size="100%,400px"></x-import>
+        <div class="ds-feature-thumbs" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+          <img src="assets/photos/hardscape-patio-fresh-pour.jpg" alt="Freshly poured concrete patio with control joints" loading="lazy" decoding="async">
+          <img src="assets/photos/hardscape-side-slab-rebar.jpg" alt="Side yard slab formed and laid with rebar before the pour" loading="lazy" decoding="async">
+          <img src="assets/photos/hardscape-side-slab-finished.jpg" alt="The same side yard slab finished, between a block wall and fence" loading="lazy" decoding="async">
+          <img src="assets/photos/hardscape-foundation-slab.jpg" alt="Large concrete slab poured inside wood forms" loading="lazy" decoding="async">
+        </div>
       </div>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,56px">Get a free estimate</x-import>
+      <div class="ds-feature-copy">
+        <span class="ds-label" style="color:var(--text-accent)">01 · Hardscaping</span>
+        <h3 class="ds-display-md" style="margin:0">Concrete patios, paths and slabs</h3>
+        <p class="ds-body" style="margin:0;color:var(--text-muted);max-width:46ch">Formed, reinforced and finished to hold up to New Mexico sun. We agree on the layout before I pour.</p>
+        <ul class="ds-feature-list">
+          <li class="ds-body-sm">Backyard concrete patios</li>
+          <li class="ds-body-sm">Side yard slabs and walkways</li>
+          <li class="ds-body-sm">Rebar-reinforced pads</li>
+        </ul>
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,56px">Get a hardscaping quote</x-import>
+      </div>
+    </div>
+
+    <div id="landscaping" class="ds-feature-row ds-feature-row--flip">
+      <div class="ds-feature-media">
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="arch" height="{{ h400 }}" src="assets/photos/landscape-xeriscape-garden.jpg" alt="Desert garden with red rock, a river rock bed, boulders and yellow flowers" hint-size="100%,400px"></x-import>
+        <div class="ds-feature-thumbs" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <img src="assets/photos/landscape-lawn-red-rock.jpg" alt="Green lawn bordered by red rock beds and desert plants" loading="lazy" decoding="async">
+          <img src="assets/photos/landscape-curved-border-bed.jpg" alt="Curved brick border around a planting bed and tree" loading="lazy" decoding="async" style="object-position:center 70%">
+        </div>
+      </div>
+      <div class="ds-feature-copy">
+        <span class="ds-label" style="color:var(--text-accent)">02 · Landscaping</span>
+        <h3 class="ds-display-md" style="margin:0">A yard that looks right in Albuquerque</h3>
+        <p class="ds-body" style="margin:0;color:var(--text-muted);max-width:46ch">Desert plants, red rock, boulders and clean borders that fit the climate. Less water, less upkeep, better views.</p>
+        <ul class="ds-feature-list">
+          <li class="ds-body-sm">Desert plant beds and borders</li>
+          <li class="ds-body-sm">Red rock, river rock and boulder accents</li>
+          <li class="ds-body-sm">Low-water desert landscaping</li>
+        </ul>
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,56px">Get a landscaping quote</x-import>
+      </div>
+    </div>
+
+    <div id="construction" class="ds-feature-row">
+      <div class="ds-feature-media">
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="arch" height="{{ h400 }}" src="assets/photos/construction-driveway-aerial.jpg" alt="New concrete driveway in front of a hillside home, seen from above" hint-size="100%,400px"></x-import>
+        <div class="ds-feature-thumbs" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+          <img src="assets/photos/construction-driveway-garage.jpg" alt="Fresh concrete driveway leading to a garage beside a stacked rock wall" loading="lazy" decoding="async" style="object-position:center 60%">
+          <img src="assets/photos/construction-flagstone-walkway.jpg" alt="Flagstone walkway through river rock with path lights" loading="lazy" decoding="async">
+          <img src="assets/photos/construction-stepping-stone-path.jpg" alt="Stepping-stone path set in gravel along a side yard" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="ds-feature-copy">
+        <span class="ds-label" style="color:var(--text-accent)">03 · Construction</span>
+        <h3 class="ds-display-md" style="margin:0">Driveways, walkways and outdoor builds</h3>
+        <p class="ds-body" style="margin:0;color:var(--text-muted);max-width:46ch">The bigger projects. We agree on the plan and the price before any work starts.</p>
+        <ul class="ds-feature-list">
+          <li class="ds-body-sm">Concrete driveways</li>
+          <li class="ds-body-sm">Flagstone walkways</li>
+          <li class="ds-body-sm">Stepping-stone paths</li>
+        </ul>
+        <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" size="lg" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,56px">Get a construction quote</x-import>
+      </div>
+    </div>
+
+    <div id="about" style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between;background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:20px;padding:28px 32px">
+      <p class="ds-body" style="margin:0;max-width:60ch">I'm Robert Tollardo. I answer the phone, I give the estimate, and I do the work.</p>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" variant="secondary" href="{{ telHref }}" hint-size="auto,48px">Call {{ phone }}</x-import>
     </div>
   </div>
 </section>
@@ -235,6 +307,9 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" variant="secondary" arrow="{{ true }}" href="#get-a-quote" hint-size="auto,48px">Ask about your yard</x-import>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="mulch-rock" name="Hardscaping" description="Concrete patios, walkways and slabs, formed and reinforced." hint-size="100%,240px"></x-import>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="bush" name="Landscaping" description="Desert plants, red rock and borders that fit the climate." hint-size="100%,240px"></x-import>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="house" name="Construction" description="Driveways, walkways and bigger outdoor builds." hint-size="100%,240px"></x-import>
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="grass-blades" name="Yard cleanup" description="Debris, weeds and general cleanup, hauled off when I leave." hint-size="100%,240px"></x-import>
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="mower" name="Mowing" description="Mow, trim and blow. Front, back, or the whole lot." hint-size="100%,240px"></x-import>
       <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ServiceCard" icon="grass-tuft" name="Weed removal" description="Weed-eating or hand pulling where the trimmer can't reach." hint-size="100%,240px"></x-import>
@@ -354,7 +429,7 @@ class Component extends DCLogic {
       tickerSpeed: this.props.tickerSpeed ?? 38,
       h48: 48, h32: 32,
       h260: 260, h220: 220, h420: 420, h400: 400, h280: 280, three: 3,
-      serviceOptions: ['Yard cleanup', 'Mowing', 'Weed removal', 'Mulch & rock', 'Bush trimming', 'Leaf / debris cleanup', 'Property maintenance', 'Pressure washing (light work)'],
+      serviceOptions: ['Hardscaping', 'Landscaping', 'Construction', 'Yard cleanup', 'Mowing', 'Weed removal', 'Mulch & rock', 'Bush trimming', 'Leaf / debris cleanup', 'Property maintenance', 'Pressure washing (light work)'],
       tiltA: -3, tiltB: 2, tiltC: 3, tiltD: -2,
       navLinks: ['Services', 'How it works', 'Service area', 'FAQ', 'Get a quote'],
       true: true
