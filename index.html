@@ -128,6 +128,49 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
   .ds-feature-row,.ds-feature-row--flip{flex-direction:column;align-items:stretch;gap:32px}
   .ds-feature-thumbs img{height:90px}
 }
+.ds-anchor{display:block;position:relative;top:-24px;height:0}
+img[src$="logo-wordmark.png"]{width:auto !important;align-self:flex-start;object-fit:contain}
+footer img[src$="logo-wordmark.png"]{height:110px !important}
+.ds-gallery-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.ds-gtab{font:inherit;font-size:15px;font-weight:700;letter-spacing:.5px;color:var(--text-body);background:var(--surface-card);border:1px solid var(--border-hairline);border-radius:999px;padding:12px 20px;min-height:48px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background-color .12s ease,border-color .12s ease,color .12s ease}
+.ds-gtab:hover{border-color:var(--accent)}
+.ds-gtab.is-active{background:var(--accent);border-color:var(--accent);color:var(--text-on-accent)}
+.ds-gtab-count{font-size:13px;font-weight:500;opacity:.7}
+.ds-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.ds-gallery-item{padding:0;border:1px solid var(--border-hairline);border-radius:12px;overflow:hidden;background:var(--surface-card);cursor:zoom-in;aspect-ratio:4/3;animation:ds-fade-up .36s cubic-bezier(.2,.7,.3,1) both}
+.ds-gallery-item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .36s cubic-bezier(.2,.7,.3,1)}
+.ds-gallery-item:hover img{transform:scale(1.04)}
+.ds-gallery-item:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+@keyframes ds-fade-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.ds-lightbox{position:fixed;inset:0;z-index:200;background:rgba(11,12,10,.94);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out;animation:ds-fade .2s ease both}
+@keyframes ds-fade{from{opacity:0}to{opacity:1}}
+.ds-lightbox img{max-width:100%;max-height:100%;border-radius:12px;object-fit:contain}
+.ds-lightbox-close{position:absolute;top:16px;right:16px;width:48px;height:48px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--text-body);font-size:20px;cursor:pointer}
+.ds-faq-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:64px;align-items:start}
+.ds-faq-list{display:flex;flex-direction:column;gap:12px}
+.ds-faq-item{background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;transition:border-color .2s ease;interpolate-size:allow-keywords}
+.ds-faq-item:hover,.ds-faq-item[open]{border-color:var(--accent)}
+.ds-faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;min-height:44px}
+.ds-faq-item summary::-webkit-details-marker{display:none}
+.ds-faq-item summary:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px;border-radius:12px}
+.ds-faq-icon{position:relative;flex-shrink:0;width:28px;height:28px;border-radius:999px;border:1px solid var(--border-strong);transition:transform .25s cubic-bezier(.2,.7,.3,1),background-color .2s ease,border-color .2s ease}
+.ds-faq-icon::before,.ds-faq-icon::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;margin:-1px 0 0 -6px;background:var(--text-body);border-radius:2px}
+.ds-faq-icon::after{transform:rotate(90deg)}
+.ds-faq-item[open] .ds-faq-icon{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+.ds-faq-item[open] .ds-faq-icon::before,.ds-faq-item[open] .ds-faq-icon::after{background:var(--text-on-accent)}
+.ds-faq-item p{margin:0;padding:0 24px 22px;color:var(--text-muted);max-width:60ch}
+.ds-faq-item[open] p{animation:ds-fade-up .3s cubic-bezier(.2,.7,.3,1) both}
+.ds-faq-item::details-content{height:0;overflow:clip;transition:height .3s cubic-bezier(.2,.7,.3,1),content-visibility .3s allow-discrete}
+.ds-faq-item[open]::details-content{height:auto}
+@media (max-width:860px){
+  .ds-faq-layout{grid-template-columns:1fr;gap:32px}
+  .ds-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .ds-gtab{padding:10px 16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ds-gallery-item,.ds-lightbox,.ds-faq-item[open] p{animation:none}
+  .ds-gallery-item img,.ds-faq-icon,.ds-faq-item::details-content{transition:none}
+}
 </style></helmet>
 <div style="background:var(--surface-page);color:var(--text-body);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden">
 
@@ -136,7 +179,7 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
   <div style="position:absolute;inset:0;background:var(--glow-green);pointer-events:none"></div>
   <img src="assets/mountain-divider.png" alt="" style="position:absolute;left:0;right:0;bottom:0;width:100%;opacity:.5;pointer-events:none">
   <header style="position:relative;z-index:100;max-width:1200px;margin:0 auto 64px;display:flex;align-items:center;gap:24px;background:rgba(23,24,18,.72);backdrop-filter:blur(8px);border:1px solid var(--border-hairline);border-radius:999px;padding:10px 10px 10px 20px">
-    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Logo" variant="wordmark" height="{{ h48 }}" href="#top" hint-size="auto,48px"></x-import>
+    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Logo" variant="wordmark" height="{{ h64 }}" href="#top" hint-size="auto,64px"></x-import>
     <input type="checkbox" id="ds-nav-toggle" class="ds-nav-toggle-cb">
     <label for="ds-nav-toggle" class="ds-nav-toggle-btn" aria-label="Open menu" style="color:var(--text-body)">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -145,7 +188,7 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
       <a href="#top" style="font-size:15px;font-weight:700;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Home</a>
       <a href="#featured" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Featured</a>
       <a href="#services" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Services</a>
-      <a href="#how-it-works" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">How it works</a>
+      <a href="#gallery" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Gallery</a>
       <a href="#service-area" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Service area</a>
       <a href="#faq" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">FAQ</a>
       <a href="#get-a-quote" style="font-size:15px;font-weight:500;color:var(--text-body);text-decoration:none;padding:10px 16px;border-radius:999px">Contact</a>
@@ -282,21 +325,23 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
   </div>
 </section>
 
-<section id="recent-job" data-reveal style="padding:96px 24px;background:var(--surface-page)">
-  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
-    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="A recent job" intro="A backyard off the west side, before I started and after I finished." hint-size="100%,180px"></x-import>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" height="{{ h420 }}" src="assets/photos/deck-cleanup-before.jpg" alt="Backyard deck and yard before cleanup in Albuquerque" caption="Before" hint-size="100%,420px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" height="{{ h420 }}" src="assets/photos/deck-cleanup-after.jpg" alt="Backyard deck and yard after cleanup in Albuquerque" caption="After" hint-size="100%,420px"></x-import>
-      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ImageFrame" shape="rounded" height="{{ h420 }}" src="assets/photos/driveway-cleanup.jpg" alt="Robert sweeping a driveway after a cleanup job in Rio Rancho" caption="Driveway cleanup, Rio Rancho" hint-size="100%,420px"></x-import>
+<section id="gallery" data-reveal style="padding:96px 24px;background:var(--surface-page)">
+  <span id="how-it-works" class="ds-anchor"></span>
+  <span id="recent-job" class="ds-anchor"></span>
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Recent work" intro="Pick a service to see real jobs. Tap any photo to see it bigger." hint-size="100%,180px"></x-import>
+    <div class="ds-gallery-tabs" role="group" aria-label="Filter photos by service">
+      <sc-for list="{{ galleryTabs }}" as="t" hint-placeholder-count="4">
+        <button type="button" class="{{ t.cls }}" aria-pressed="{{ t.pressed }}" onClick="{{ t.pick }}">{{ t.label }} <span class="ds-gtab-count">{{ t.count }}</span></button>
+      </sc-for>
     </div>
-  </div>
-</section>
-
-<section id="how-it-works" data-reveal style="padding:96px 24px">
-  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
-    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Three steps, no paperwork" intro="Nothing is booked online and nothing is prepaid. You call, I look, we agree on a price." hint-size="100%,180px"></x-import>
-    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.ProcessSteps" hint-size="100%,240px"></x-import>
+    <div class="ds-gallery-grid">
+      <sc-for list="{{ galleryPhotos }}" as="p" hint-placeholder-count="6">
+        <button type="button" class="ds-gallery-item" onClick="{{ p.open }}" aria-label="{{ p.zoomLabel }}">
+          <img src="{{ p.src }}" alt="{{ p.alt }}" loading="lazy" decoding="async">
+        </button>
+      </sc-for>
+    </div>
   </div>
 </section>
 
@@ -342,33 +387,40 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
 </section>
 
 <section id="faq" data-reveal style="padding:96px 24px;background:var(--surface-card);border-top:1px solid var(--border-hairline)">
-  <div style="max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
-    <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Questions people ask" intro="If it's not here, just call. I'd rather tell you straight than have you guess." hint-size="100%,180px"></x-import>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">Is the estimate really free?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">Yes. I come look at the yard and give you a price. No cost, no obligation.</p>
-      </div>
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">Do I need to be there for the walk-through?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">No. Leave the gate code or tell me how to get in, and I'll text you a price.</p>
-      </div>
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">What's included in a yard cleanup?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">Debris, weeds and general cleanup, hauled off the same day I do the work.</p>
-      </div>
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">Do you bring the mulch and rock?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">Yes. Spread and levelled. Labour is in the estimate, materials billed separately.</p>
-      </div>
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">What areas do you cover?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">Albuquerque and about 30 miles out, including Rio Rancho, Corrales, Bernalillo, Placitas, Tijeras and Los Lunas.</p>
-      </div>
-      <div style="background:var(--surface-elevated);border:1px solid var(--border-hairline);border-radius:12px;padding:28px">
-        <h3 class="ds-title-md" style="margin:0 0 8px">Is there a deposit?</h3>
-        <p class="ds-body-sm" style="margin:0;color:var(--text-muted)">No deposit for the estimate. We agree on a price before I start any work.</p>
-      </div>
+  <div class="ds-faq-layout">
+    <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.SectionHeading" title="Questions people ask" intro="If it's not here, just call. I'd rather tell you straight than have you guess." hint-size="100%,180px"></x-import>
+      <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Button" variant="secondary" href="{{ telHref }}" hint-size="auto,48px">Call {{ phone }}</x-import>
+    </div>
+    <div class="ds-faq-list">
+      <details class="ds-faq-item" name="ds-faq" open="{{ true }}">
+        <summary><span class="ds-title-md">Is the estimate really free?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">Yes. I come look at the yard and give you a price. No cost, no obligation.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">Do you do concrete work?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">Yes. Patios, driveways, walkways and slabs. I walk the site with you and give you a price before any work starts.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">Do I need to be there for the walk-through?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">No. Leave the gate code or tell me how to get in, and I'll text you a price.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">What's included in a yard cleanup?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">Debris, weeds and general cleanup, hauled off the same day I do the work.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">Do you bring the mulch and rock?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">Yes. Spread and levelled. Labour is in the estimate, materials billed separately.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">What areas do you cover?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">Albuquerque and about 30 miles out, including Rio Rancho, Corrales, Bernalillo, Placitas, Tijeras and Los Lunas.</p>
+      </details>
+      <details class="ds-faq-item" name="ds-faq">
+        <summary><span class="ds-title-md">Is there a deposit?</span><span class="ds-faq-icon" aria-hidden="true"></span></summary>
+        <p class="ds-body-sm">No deposit for the estimate. We agree on a price before I start any work.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -414,24 +466,82 @@ label.ds-shake{animation:ds-shake .4s cubic-bezier(.36,.07,.19,.97)}
 </section>
 
 <x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.CtaBand" phone="{{ phone }}" hint-size="100%,320px"></x-import>
-<x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Footer" phone="{{ phone }}" hint-size="100%,300px"></x-import>
+<x-import component-from-global-scope="DesertSolutionsDesignSystem_96d1ce.Footer" phone="{{ phone }}" links="{{ footerLinks }}" hint-size="100%,300px"></x-import>
 <a href="{{ telHref }}" class="ds-mobile-callbar">Call {{ phone }} for a free estimate</a>
+<sc-if value="{{ lightboxOpen }}" hint-placeholder-val="{{ false }}">
+  <div class="ds-lightbox" role="dialog" aria-modal="true" aria-label="{{ lightboxAlt }}" onClick="{{ closeLightbox }}">
+    <img src="{{ lightboxSrc }}" alt="{{ lightboxAlt }}">
+    <button type="button" class="ds-lightbox-close" aria-label="Close photo" onClick="{{ closeLightbox }}">&#10005;</button>
+  </div>
+</sc-if>
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;(505) 403-7780&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:38,&quot;min&quot;:16,&quot;max&quot;:80,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+const GALLERY = [
+  { id: 'hardscaping', label: 'Hardscaping', photos: [
+    ['hardscape-patio-finished.jpg', 'Finished concrete patio along the back of a house'],
+    ['hardscape-patio-fresh-pour.jpg', 'Freshly poured concrete patio with control joints'],
+    ['hardscape-side-slab-rebar.jpg', 'Side yard slab formed and laid with rebar before the pour'],
+    ['hardscape-side-slab-finished.jpg', 'The same side yard slab finished'],
+    ['hardscape-foundation-slab.jpg', 'Large concrete slab poured inside wood forms']
+  ] },
+  { id: 'landscaping', label: 'Landscaping', photos: [
+    ['landscape-xeriscape-garden.jpg', 'Desert garden with red rock, river rock and yellow flowers'],
+    ['landscape-lawn-red-rock.jpg', 'Lawn bordered by red rock beds and desert plants'],
+    ['landscape-curved-border-bed.jpg', 'Curved brick border around a planting bed and tree']
+  ] },
+  { id: 'construction', label: 'Construction', photos: [
+    ['construction-driveway-aerial.jpg', 'New concrete driveway in front of a hillside home'],
+    ['construction-driveway-garage.jpg', 'Fresh concrete driveway leading to a garage'],
+    ['construction-flagstone-walkway.jpg', 'Flagstone walkway through river rock with path lights'],
+    ['construction-stepping-stone-path.jpg', 'Stepping-stone path set in gravel along a side yard']
+  ] },
+  { id: 'yard-care', label: 'Yard care', photos: [
+    ['deck-cleanup-before.jpg', 'Backyard deck and yard before cleanup'],
+    ['deck-cleanup-after.jpg', 'The same backyard after cleanup'],
+    ['driveway-cleanup.jpg', 'Robert sweeping a driveway after a cleanup job in Rio Rancho'],
+    ['mowing.jpg', 'Robert mowing a lawn in Albuquerque'],
+    ['trimming.jpg', 'Bush trimmed back along a walkway'],
+    ['path-edged.jpg', 'Freshly edged desert landscaping path'],
+    ['lawn-edge-evening.jpg', 'Clean lawn edge in evening light'],
+    ['path-shed.jpg', 'Cleared gravel path beside a backyard shed']
+  ] }
+];
+
 class Component extends DCLogic {
   renderVals() {
     const phone = this.props.phone ?? '(505) 403-7780';
+    const tab = (this.state && this.state.galleryTab) || GALLERY[0].id;
+    const lightbox = this.state && this.state.lightbox;
+    const current = GALLERY.find((g) => g.id === tab) || GALLERY[0];
     return {
       phone,
       telHref: 'tel:' + phone.replace(/[^\d+]/g, ''),
       tickerSpeed: this.props.tickerSpeed ?? 38,
-      h48: 48, h32: 32,
+      galleryTabs: GALLERY.map((g) => ({
+        label: g.label,
+        count: g.photos.length,
+        pressed: g.id === current.id ? 'true' : 'false',
+        cls: g.id === current.id ? 'ds-gtab is-active' : 'ds-gtab',
+        pick: () => this.setState({ galleryTab: g.id })
+      })),
+      galleryPhotos: current.photos.map(([file, alt]) => ({
+        src: 'assets/photos/' + file,
+        alt,
+        zoomLabel: 'View larger: ' + alt,
+        open: () => this.setState({ lightbox: { src: 'assets/photos/' + file, alt } })
+      })),
+      lightboxOpen: !!lightbox,
+      lightboxSrc: lightbox ? lightbox.src : '',
+      lightboxAlt: lightbox ? lightbox.alt : '',
+      closeLightbox: () => this.setState({ lightbox: null }),
+      h64: 64, h48: 48, h32: 32,
       h260: 260, h220: 220, h420: 420, h400: 400, h280: 280, three: 3,
       serviceOptions: ['Patio installation', 'Concrete pouring', 'Driveways', 'Rock & flagstone walkways', 'Desert landscaping', 'Mulch & rock', 'Mowing', 'Something else'],
       tiltA: -3, tiltB: 2, tiltC: 3, tiltD: -2,
-      navLinks: ['Services', 'How it works', 'Service area', 'FAQ', 'Get a quote'],
+      navLinks: ['Services', 'Gallery', 'Service area', 'FAQ', 'Get a quote'],
+      footerLinks: ['Services', 'Gallery', 'Service area', 'FAQ', 'Get a quote'],
       true: true
     };
   }
